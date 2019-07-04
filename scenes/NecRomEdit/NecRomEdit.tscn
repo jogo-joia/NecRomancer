@@ -106,8 +106,8 @@ text = "Story Title"
 valign = 1
 
 [node name="TitleLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"story_settings_line",
 "NecRomEdit_line",
+"story_settings_line",
 ]]
 margin_top = 24.0
 margin_right = 480.0
@@ -123,8 +123,8 @@ text = "Version"
 valign = 1
 
 [node name="VersionLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"story_settings_line",
 "NecRomEdit_line",
+"story_settings_line",
 ]]
 margin_top = 80.0
 margin_right = 232.0
@@ -141,8 +141,8 @@ text = "Description"
 valign = 1
 
 [node name="DescriptionLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"story_settings_line",
 "NecRomEdit_line",
+"story_settings_line",
 ]]
 margin_left = 248.0
 margin_top = 80.0
@@ -159,8 +159,8 @@ text = "ID"
 valign = 1
 
 [node name="IdLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"story_settings_line",
 "NecRomEdit_line",
+"story_settings_line",
 ]]
 margin_top = 128.0
 margin_right = 232.0
@@ -177,8 +177,8 @@ text = "Author"
 valign = 1
 
 [node name="AuthorLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"story_settings_line",
 "NecRomEdit_line",
+"story_settings_line",
 ]]
 margin_left = 248.0
 margin_top = 128.0
@@ -195,8 +195,8 @@ text = "Email"
 valign = 1
 
 [node name="EmailLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"story_settings_line",
 "NecRomEdit_line",
+"story_settings_line",
 ]]
 margin_top = 176.0
 margin_right = 232.0
@@ -213,8 +213,8 @@ text = "Website"
 valign = 1
 
 [node name="WebsiteLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"story_settings_line",
 "NecRomEdit_line",
+"story_settings_line",
 ]]
 margin_left = 248.0
 margin_top = 176.0
@@ -231,8 +231,8 @@ margin_right = 1008.0
 margin_bottom = 408.0
 
 [node name="TextEdit" type="TextEdit" parent="PBg/Parallax/PassageEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_top = 8.0
 margin_right = 480.0
@@ -292,8 +292,8 @@ text = "Passage Tag"
 valign = 1
 
 [node name="TagLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_left = 168.0
 margin_top = 120.0
@@ -311,8 +311,8 @@ text = "Voice"
 valign = 1
 
 [node name="VoiceLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_left = 328.0
 margin_top = 120.0
@@ -402,8 +402,8 @@ text = "Direction Tag"
 valign = 1
 
 [node name="DirectionTagLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_left = 168.0
 margin_top = 328.0
@@ -421,8 +421,8 @@ text = "Argument String"
 valign = 1
 
 [node name="ArgumentStringLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_left = 328.0
 margin_top = 328.0
@@ -487,8 +487,8 @@ text = "Voice Name"
 valign = 1
 
 [node name="VoiceNameLineEdit" type="LineEdit" parent="PBg/Parallax/VoiceEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_left = 168.0
 margin_top = 56.0
@@ -542,8 +542,8 @@ text = "Category Name"
 valign = 1
 
 [node name="CategoryNameLineEdit" type="LineEdit" parent="PBg/Parallax/VoiceEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_left = 168.0
 margin_top = 328.0
@@ -597,8 +597,8 @@ text = "Sound Name"
 valign = 1
 
 [node name="SoundNameLineEdit" type="LineEdit" parent="PBg/Parallax/VoiceEditor" groups=[
-"NecRomEdit_line",
 "passage_editor_line",
+"NecRomEdit_line",
 ]]
 margin_left = 328.0
 margin_top = 328.0

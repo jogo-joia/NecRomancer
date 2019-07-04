@@ -23,12 +23,13 @@ onready var actors: Dictionary = $JsonParser.load_data("res://story/actors.json"
 
 onready var stage: TextureRect = $Stage
 onready var sound_manager: Node = $SoundManager
-onready var text_label: RichTextLabel = $FullEnglish/RichTextLabel
+# onready var text_label: RichTextLabel = $FullEnglish/RichTextLabel
 onready var choices_box: VBoxContainer = $ChoicesBox
 
 onready var StageObject: = "res://scenes/StageObject/StageObject.tscn"
 
 func _ready():
+	story["variables"] = ["Naruto", "Ronaldinho", "Andrew Hussie"]
 	story_index = -1
 	advance_story()
 
@@ -38,16 +39,6 @@ func _input(event: InputEvent) -> void:
 			advance_story()
 		elif game_state == states.TYPING:
 			game_state = states.NOVEL
-
-# Realistically, this code is very close to falling apart.
-# What must be fixed immediately is decoupling the dialog box
-# code from the visual novel code, the input code, the passage
-# interpretation code, all of these things need to be decoupled
-# lest this code become irreparable.
-# Following this correction, ensuring a robust state machine is
-# the first order of business. And then making choices and jumping
-# work. And then... combat, is it? Or backgrounds, advanced teathrics.
-# We'll get there.
 
 func change_state(new_state: int):
 	match new_state:
@@ -69,48 +60,6 @@ func change_state(new_state: int):
 		_:
 			print("illegal state defined: ", new_state)
 			game_state = new_state
-
-# Text should be renderable on more than just the fullenglish, I require
-# cinematic text at the center on an empty background, for dramatic impact.
-func render_text(content: String):
-	text_label.bbcode_text = content
-	text_label.visible_characters = 0
-	game_state = states.TYPING
-	yield(get_tree().create_timer(0.1), "timeout")
-	for character in text_label.text:
-		if game_state == states.TYPING:
-			yield(get_tree().create_timer(0.01), "timeout")
-			text_label.visible_characters += 1
-			match character:
-				",":
-					sound_manager.speak()
-					yield(get_tree().create_timer(0.1), "timeout")
-				";":
-					sound_manager.speak()
-					yield(get_tree().create_timer(0.15), "timeout")
-				"-":
-					sound_manager.speak()
-					yield(get_tree().create_timer(0.2), "timeout")
-				"—":
-					sound_manager.speak()
-					yield(get_tree().create_timer(0.2), "timeout")
-				".":
-					sound_manager.speak()
-					yield(get_tree().create_timer(0.2), "timeout")
-				"!":
-					sound_manager.speak()
-					yield(get_tree().create_timer(0.5), "timeout")
-				"?":
-					sound_manager.speak()
-					yield(get_tree().create_timer(0.5), "timeout")
-				"\"", " ":
-					pass
-				_:
-					sound_manager.speak()
-			if text_label.visible_characters == text_label.bbcode_text.length():
-				game_state = states.NOVEL
-	game_state = states.NOVEL
-	text_label.visible_characters = text_label.bbcode_text.length()
 
 func interpret_passage(passage_index: int):
 	var passage = story.passages[passage_index]
@@ -183,12 +132,13 @@ func interpret_direction(tag: String, arguments: Array):
 
 func print_passage(passage_index: int):
 	var text_contents = story.passages[passage_index].text
-	render_text(text_contents)
+	$FullEnglish/DialogBox.output(text_contents)
+	# render_text(text_contents)
 
 func print_passage_dictionary(passage: Dictionary):
 	var text_contents: String
 	text_contents = passage.text
-	render_text(text_contents)
+	# render_text(text_contents)
 
 func advance_story():
 	story_index = (story_index + 1) % story.passages.size()

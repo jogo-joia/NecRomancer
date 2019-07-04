@@ -23,7 +23,7 @@ onready var sound_manager: Node = $SoundManager
 
 func _ready() -> void:
 	# works fine without the newlines
-	output("[b]A personable stranger says,[/b]\n\"Hello... I am... the dreaded{;} {s=realization}{>}[b]Necromancer[/b]{<}! I am here today to deliver exposition on a T{;}E{;}R{;}R{;}I{;}B{;}L{;}E{;} subject... it is the:{;}{,} [b]{s=damage}{>}WAR{.} {s=damage}ON{.} {s=damage}DRUGS[/b]{<}.{.} It is destroying this nation.\"")
+	# output("[b]A personable stranger says,[/b]\n\"Hello... I am... the dreaded{;} {s=realization}{>}[b]Necromancer[/b]{<}! I am here today to deliver exposition on a T{;}E{;}R{;}R{;}I{;}B{;}L{;}E{;} subject... it is the:{;}{,} [b]{s=damage}{>}WAR{.} {s=damage}ON{.} {s=damage}DRUGS[/b]{<}.{.} It is destroying this nation.\"")
 	pass
 
 func init() -> void:
@@ -34,7 +34,7 @@ func output(message: String):
 	render_text(output_stack)
 
 func process_passage_text(passage_text: String) -> Array:
-	var output_stack: Array
+	var output_stack: Array = []
 	var shortcode_size: int
 	var bbcode_size: int
 	var is_interpreting_shortcode: bool = false
@@ -68,7 +68,35 @@ func process_passage_text(passage_text: String) -> Array:
 				is_interpreting_bbcode = false
 		else:
 			output_stack.append(passage_text[index])
+	output_stack = process_replacements(output_stack)
 	return output_stack
+
+func process_replacements(output_stack: Array) -> Array:
+	var new_output_stack: Array
+	for stack_string in output_stack:
+		if stack_string.length() > 1:
+			match stack_string[1]:
+				"g":
+					pass
+				"v":
+					var requested_variable: String
+					var variable_content: String
+					for index in range(3, stack_string.length() - 1):
+						requested_variable += stack_string[index]
+					variable_content = owner.story.variables[int(requested_variable)]
+					for index in variable_content.length():
+						new_output_stack.append(variable_content[index])
+				"n":
+					pass
+				"p":
+					pass
+				"c":
+					pass
+				_:
+					new_output_stack.append(stack_string)
+		else:
+			new_output_stack.append(stack_string)
+	return new_output_stack
 
 func interpret_shortcode(shortcode: String):
 	yield(get_tree(), "idle_frame")
@@ -79,16 +107,6 @@ func interpret_shortcode(shortcode: String):
 				for index in range(3, shortcode.length() - 1):
 					requested_sound += shortcode[index]
 				sound_manager.play_and_forget(requested_sound)
-			"g": # Display value of variable x.
-				pass
-			"v": # Display the value of nth story variable.
-				pass
-			"n": # Display the name of nth actor.
-				pass
-			"p": # Display the name of nth party member.
-				pass
-			"c": # Draws subsequent text in the nth color.
-				pass
 			",": # Wait 0.1 second.
 				yield(get_tree().create_timer(0.1), "timeout")
 			";": # Wait 0.25 second.
@@ -118,6 +136,7 @@ func output_to_string(output_stack: Array) -> String:
 func render_text(output_stack: Array):
 	var content: String = output_to_string(output_stack)
 	var typing_frequency: float = default_typing_frequency
+	print(output_stack)
 	dialog_label.bbcode_text = content
 	dialog_label.visible_characters = 0
 	content = dialog_label.text

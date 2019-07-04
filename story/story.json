@@ -1,1 +1,166 @@
-{"author":"Virgula & Ducky","description":"Kill your local lord.","email":"aqueleleal@gmail.com","id":"com.jogojoia.necromancer","passages":[{"directions":[{"arguments":["necromancer","right","360"],"tag":"enter_stage"}],"tag":"start","text":"","voice":""},{"directions":[],"tag":"","text":"The old blacksmith shop is even hotter than usual—yet just as chaotic as ever.","voice":""},{"directions":[{"arguments":["lydia","left","200"],"tag":"enter_stage"}],"tag":"","text":"Lydia enters here. She comes from the left and goes to 200x.","voice":""},{"directions":[{"arguments":["cats","jump","likes_cats"],"tag":"add_choice"},{"arguments":["dogs","jump","likes_dogs"],"tag":"add_choice"},{"arguments":["snakes","jump","likes_snakes"],"tag":"add_choice"},{"arguments":[],"tag":"display_choices"}],"tag":"","text":"Please, make your choice.","voice":""},{"directions":[{"arguments":["blacksmith","right","80"],"tag":"enter_stage"},{"arguments":[],"tag":"hide_choices"}],"tag":"","text":"Now in comes the blacksmith. From the right to 80.","voice":""},{"directions":[{"arguments":["necromancer","bottom","320"],"tag":"enter_stage"}],"tag":"","text":"Oooooh shit, here comes the NECROMANCER! From the bottom to 320!","voice":""},{"directions":[{"arguments":["lydia","angry"],"tag":"act"}],"tag":"","text":"Lydia got angry.","voice":""},{"directions":[{"arguments":["lydia","left"],"tag":"face"}],"tag":"","text":"Lydia looks to the left.","voice":""},{"directions":[{"arguments":["lydia","right"],"tag":"face"}],"tag":"","text":"Lydia looks to the right.","voice":""},{"directions":[{"arguments":["lydia","flip"],"tag":"face"}],"tag":"","text":"Lydia flips!","voice":""},{"directions":[{"arguments":["lydia","flip"],"tag":"face"},{"arguments":["blacksmith","flip"],"tag":"face"},{"arguments":["necromancer","flip"],"tag":"face"}],"tag":"","text":"And so does everyone! Even lydia, again...","voice":""},{"directions":[{"arguments":["lydia","default"],"tag":"act"}],"tag":"","text":"Lydia's not so angry anymore.","voice":""},{"directions":[{"arguments":["lydia","blacksmith"],"tag":"face"}],"tag":"","text":"Now, Lydia faces the blacksmith. Soon...","voice":""},{"directions":[{"arguments":["lydia","necromancer"],"tag":"face"}],"tag":"","text":"Lydia turns to face the Necromancer.","voice":""},{"directions":[{"arguments":["lydia","right"],"tag":"exit_stage"},{"arguments":["blacksmith","left"],"tag":"exit_stage"}],"tag":"","text":"But the time has come; both Lydia and the Blacksmith herself leave the stage at once. We know they will return, yet we miss them. How could we not?","voice":""},{"directions":[],"tag":"","text":"There's been a great influx of customers since the first cases of the plague, folks are scared, they've seen the shambling corpses.","voice":""},{"directions":[{"arguments":["blacksmith","right","100"],"tag":"enter_stage"},{"arguments":["lydia","left","280"],"tag":"enter_stage"}],"tag":"","text":"[b]Isabella, the Master Blacksmith[/b] interrupts,\n\"Now ain't you both just quite the same piece o'pie, bickerin' like that... I swear I've never seen nor 'eard m'Lydia blabber'n' that much!\"","voice":""},{"directions":[],"tag":"","text":"The villagers want to fight fire with fire, may the Light illuminate their path.","voice":""}],"title":"NecRomancer","version":"0.0.0.1","website":"https://jogojoia.com"}
+{
+    "author": "Virgula & Ducky",
+    "description": "Kill your local lord.",
+    "email": "aqueleleal@gmail.com",
+    "id": "com.jogojoia.necromancer",
+    "passages": [{
+        "directions": [],
+        "tag": "start",
+        "text": "Summer time is cruel to Bootscrape. My best friend is {v=1}! I swear.",
+        "voice": ""
+    }, {
+        "directions": [],
+        "tag": "",
+        "text": "The old blacksmith shop is even hotter than usual—yet just as chaotic as ever.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "left", "200"],
+            "tag": "enter_stage"
+        }],
+        "tag": "",
+        "text": "Lydia enters here. She comes from the left and goes to 200x.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["cats", "jump", "likes_cats"],
+            "tag": "add_choice"
+        }, {
+            "arguments": ["dogs", "jump", "likes_dogs"],
+            "tag": "add_choice"
+        }, {
+            "arguments": ["snakes", "jump", "likes_snakes"],
+            "tag": "add_choice"
+        }, {
+            "arguments": [],
+            "tag": "display_choices"
+        }],
+        "tag": "",
+        "text": "Please, make your choice.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["blacksmith", "right", "80"],
+            "tag": "enter_stage"
+        }, {
+            "arguments": [],
+            "tag": "hide_choices"
+        }],
+        "tag": "",
+        "text": "Now in comes the blacksmith. From the right to 80.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["necromancer", "bottom", "320"],
+            "tag": "enter_stage"
+        }],
+        "tag": "",
+        "text": "Oooooh shit, here comes the NECROMANCER! From the bottom to 320!",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "angry"],
+            "tag": "act"
+        }],
+        "tag": "",
+        "text": "Lydia got angry.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "left"],
+            "tag": "face"
+        }],
+        "tag": "",
+        "text": "Lydia looks to the left.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "right"],
+            "tag": "face"
+        }],
+        "tag": "",
+        "text": "Lydia looks to the right.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "flip"],
+            "tag": "face"
+        }],
+        "tag": "",
+        "text": "Lydia flips!",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "flip"],
+            "tag": "face"
+        }, {
+            "arguments": ["blacksmith", "flip"],
+            "tag": "face"
+        }, {
+            "arguments": ["necromancer", "flip"],
+            "tag": "face"
+        }],
+        "tag": "",
+        "text": "And so does everyone! Even lydia, again...",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "default"],
+            "tag": "act"
+        }],
+        "tag": "",
+        "text": "Lydia's not so angry anymore.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "blacksmith"],
+            "tag": "face"
+        }],
+        "tag": "",
+        "text": "Now, Lydia faces the blacksmith. Soon...",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "necromancer"],
+            "tag": "face"
+        }],
+        "tag": "",
+        "text": "Lydia turns to face the Necromancer.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["lydia", "right"],
+            "tag": "exit_stage"
+        }, {
+            "arguments": ["blacksmith", "left"],
+            "tag": "exit_stage"
+        }],
+        "tag": "",
+        "text": "But the time has come; both Lydia and the Blacksmith herself leave the stage at once. We know they will return, yet we miss them. How could we not?",
+        "voice": ""
+    }, {
+        "directions": [],
+        "tag": "",
+        "text": "There's been a great influx of customers since the first cases of the plague, folks are scared, they've seen the shambling corpses.",
+        "voice": ""
+    }, {
+        "directions": [{
+            "arguments": ["blacksmith", "right", "100"],
+            "tag": "enter_stage"
+        }, {
+            "arguments": ["lydia", "left", "280"],
+            "tag": "enter_stage"
+        }],
+        "tag": "",
+        "text": "[b]Isabella, the Master Blacksmith[/b] interrupts,\n\"Now ain't you both just quite the same piece o'pie, bickerin' like that... I swear I've never seen nor 'eard m'Lydia blabber'n' that much!\"",
+        "voice": ""
+    }, {
+        "directions": [],
+        "tag": "",
+        "text": "The villagers want to fight fire with fire, may the Light illuminate their path.",
+        "voice": ""
+    }],
+    "title": "NecRomancer",
+    "version": "0.0.0.1",
+    "website": "https://jogojoia.com"
+}
