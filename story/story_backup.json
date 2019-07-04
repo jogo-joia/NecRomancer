@@ -6,34 +6,37 @@
     "passages": [{
         "directions": [],
         "tag": "start",
-        "text": "  ",
+        "text": "Summer time is cruel to Bootscrape. My best friend is {v=1}! I swear.",
+        "voice": ""
+    }, {
+        "directions": [],
+        "tag": "",
+        "text": "The old blacksmith shop is even hotter than usual—yet just as chaotic as ever.",
         "voice": ""
     }, {
         "directions": [{
-            "arguments": ["lydia", "left", "100"],
+            "arguments": ["lydia", "left", "200"],
             "tag": "enter_stage"
         }],
         "tag": "",
-        "text": "[b]Uma figura religiosa diz,[/b]\n\"Eu o desafiei. {;}Ele aceitaste meu desafio... {;}\nEstá aqui, agora vou desmascará-lo.\"",
+        "text": "Lydia enters here. She comes from the left and goes to 200x.",
         "voice": ""
     }, {
         "directions": [{
-            "arguments": ["lydia", "angry"],
-            "tag": "act"
+            "arguments": ["cats", "jump", "likes_cats"],
+            "tag": "add_choice"
         }, {
-            "arguments": ["lydia", "110"],
-            "tag": "move"
+            "arguments": ["dogs", "jump", "likes_dogs"],
+            "tag": "add_choice"
+        }, {
+            "arguments": ["snakes", "jump", "likes_snakes"],
+            "tag": "add_choice"
+        }, {
+            "arguments": [],
+            "tag": "display_choices"
         }],
         "tag": "",
-        "text": "\"{s=damage}{>}[b]EN{<}{.}{s=damage}{>}TRA!{<}[/b]\"",
-        "voice": ""
-    }, {
-        "directions": [{
-            "arguments": ["necromancer", "right", "300"],
-            "tag": "enter_stage"
-        }],
-        "tag": "",
-        "text": "\"Suposto{;} [b]filho do capeta[/b].\"",
+        "text": "Please, make your choice.",
         "voice": ""
     }, {
         "directions": [{

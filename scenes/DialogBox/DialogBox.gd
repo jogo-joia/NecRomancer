@@ -5,7 +5,7 @@ signal finished_typing
 signal interrupted_typing
 signal resume_typing
 
-const default_typing_frequency = 0.05
+const default_typing_frequency = 0.025
 
 enum states {
 	STANDBY,		# Awaiting input
@@ -72,7 +72,7 @@ func process_passage_text(passage_text: String) -> Array:
 	return output_stack
 
 func process_replacements(output_stack: Array) -> Array:
-	var new_output_stack: Array
+	var new_output_stack: Array = []
 	for stack_string in output_stack:
 		if stack_string.length() > 1:
 			match stack_string[1]:
@@ -136,7 +136,6 @@ func output_to_string(output_stack: Array) -> String:
 func render_text(output_stack: Array):
 	var content: String = output_to_string(output_stack)
 	var typing_frequency: float = default_typing_frequency
-	print(output_stack)
 	dialog_label.bbcode_text = content
 	dialog_label.visible_characters = 0
 	content = dialog_label.text
@@ -147,6 +146,7 @@ func render_text(output_stack: Array):
 			if not skipping:
 				yield(get_tree().create_timer(typing_frequency), "timeout")
 			dialog_label.visible_characters += 1
+			var is_ending = bool(dialog_label.visible_characters - dialog_label.text.length() == -3)
 			if not skipping: match output_stack[index]:
 				",":
 					sound_manager.speak()
@@ -156,20 +156,23 @@ func render_text(output_stack: Array):
 					yield(get_tree().create_timer(0.15), "timeout")
 				"-":
 					sound_manager.speak()
-					yield(get_tree().create_timer(0.2), "timeout")
+					yield(get_tree().create_timer(typing_frequency), "timeout")
 				"—":
 					sound_manager.speak()
 					yield(get_tree().create_timer(0.2), "timeout")
 				".":
 					sound_manager.speak()
-					yield(get_tree().create_timer(0.2), "timeout")
+					if !is_ending:
+						yield(get_tree().create_timer(0.2), "timeout")
 				"!":
 					sound_manager.speak()
 					yield(get_tree().create_timer(0.5), "timeout")
 				"?":
 					sound_manager.speak()
 					yield(get_tree().create_timer(0.5), "timeout")
-				"\"", " ", "	":
+				"\"":
+					sound_manager.speak()
+				" ", "	":
 					pass
 				"\n":
 					pass
