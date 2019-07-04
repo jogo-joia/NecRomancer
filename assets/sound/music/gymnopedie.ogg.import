@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gymnopedie.ogg-c660146aebae366008aa43de366f62b1.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/music/gymnopedie.ogg"
+dest_files=[ "res://.import/gymnopedie.ogg-c660146aebae366008aa43de366f62b1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

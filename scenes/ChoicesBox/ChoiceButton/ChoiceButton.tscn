@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/palatino_bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/ChoicesBox/ChoiceButton/ChoiceButton.gd" type="Script" id=2]
+
+[node name="ChoiceButton" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "I AM ERROR"
+script = ExtResource( 2 )

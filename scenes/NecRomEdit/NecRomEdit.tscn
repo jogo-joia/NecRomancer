@@ -1,0 +1,648 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/NecRomEdit/NecRomEdit.gd" type="Script" id=1]
+[ext_resource path="res://scenes/NecRomEdit/JsonParser.gd" type="Script" id=2]
+[ext_resource path="res://scenes/VisualNovel/VisualNovel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/ui/roombg.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/palatino_bold.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/fonts/palatino.tres" type="DynamicFont" id=6]
+
+[node name="NecRomEdit" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="JsonParser" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="VisualNovel" parent="." instance=ExtResource( 3 )]
+game_state = 5
+
+[node name="PBg" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="Parallax" type="ParallaxLayer" parent="PBg"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="EditorBg" type="TextureRect" parent="PBg/Parallax"]
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 424.0
+texture = ExtResource( 4 )
+
+[node name="TitleLabel" type="Label" parent="PBg/Parallax"]
+margin_left = 528.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "NecRomEdit 2"
+align = 1
+
+[node name="StoryBtn" type="LinkButton" parent="PBg/Parallax"]
+margin_left = 528.0
+margin_top = 40.0
+margin_right = 577.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 6 )
+text = "Story"
+underline = 1
+
+[node name="PassagesBtn" type="LinkButton" parent="PBg/Parallax"]
+margin_left = 592.0
+margin_top = 40.0
+margin_right = 656.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 6 )
+text = "Passages"
+underline = 1
+
+[node name="VoicesBtn" type="LinkButton" parent="PBg/Parallax"]
+visible = false
+margin_left = 680.0
+margin_top = 40.0
+margin_right = 744.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 6 )
+text = "Voices"
+underline = 1
+
+[node name="LoadStoryBtn" type="LinkButton" parent="PBg/Parallax"]
+margin_left = 840.0
+margin_top = 40.0
+margin_right = 920.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 6 )
+text = "Load Story"
+underline = 1
+
+[node name="SaveStoryBtn" type="LinkButton" parent="PBg/Parallax"]
+margin_left = 928.0
+margin_top = 40.0
+margin_right = 1008.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 6 )
+text = "Save Story"
+underline = 1
+
+[node name="StoryEditor" type="Control" parent="PBg/Parallax"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 528.0
+margin_top = 56.0
+margin_right = 1009.0
+margin_bottom = 408.0
+
+[node name="TitleLabel" type="Label" parent="PBg/Parallax/StoryEditor"]
+margin_top = 8.0
+margin_right = 152.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Story Title"
+valign = 1
+
+[node name="TitleLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
+"story_settings_line",
+"NecRomEdit_line",
+]]
+margin_top = 24.0
+margin_right = 480.0
+margin_bottom = 48.0
+
+[node name="VersionLabel" type="Label" parent="PBg/Parallax/StoryEditor"]
+margin_top = 64.0
+margin_right = 232.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Version"
+valign = 1
+
+[node name="VersionLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
+"story_settings_line",
+"NecRomEdit_line",
+]]
+margin_top = 80.0
+margin_right = 232.0
+margin_bottom = 104.0
+
+[node name="DescriptionLabel" type="Label" parent="PBg/Parallax/StoryEditor"]
+margin_left = 248.0
+margin_top = 64.0
+margin_right = 480.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Description"
+valign = 1
+
+[node name="DescriptionLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
+"story_settings_line",
+"NecRomEdit_line",
+]]
+margin_left = 248.0
+margin_top = 80.0
+margin_right = 480.0
+margin_bottom = 104.0
+
+[node name="IdLabel" type="Label" parent="PBg/Parallax/StoryEditor"]
+margin_top = 112.0
+margin_right = 232.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "ID"
+valign = 1
+
+[node name="IdLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
+"story_settings_line",
+"NecRomEdit_line",
+]]
+margin_top = 128.0
+margin_right = 232.0
+margin_bottom = 152.0
+
+[node name="AuthorLabel" type="Label" parent="PBg/Parallax/StoryEditor"]
+margin_left = 248.0
+margin_top = 112.0
+margin_right = 480.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Author"
+valign = 1
+
+[node name="AuthorLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
+"story_settings_line",
+"NecRomEdit_line",
+]]
+margin_left = 248.0
+margin_top = 128.0
+margin_right = 480.0
+margin_bottom = 152.0
+
+[node name="EmailLabel" type="Label" parent="PBg/Parallax/StoryEditor"]
+margin_top = 160.0
+margin_right = 232.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Email"
+valign = 1
+
+[node name="EmailLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
+"story_settings_line",
+"NecRomEdit_line",
+]]
+margin_top = 176.0
+margin_right = 232.0
+margin_bottom = 200.0
+
+[node name="WebsiteLabel" type="Label" parent="PBg/Parallax/StoryEditor"]
+margin_left = 248.0
+margin_top = 160.0
+margin_right = 480.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Website"
+valign = 1
+
+[node name="WebsiteLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
+"story_settings_line",
+"NecRomEdit_line",
+]]
+margin_left = 248.0
+margin_top = 176.0
+margin_right = 480.0
+margin_bottom = 200.0
+
+[node name="PassageEditor" type="Control" parent="PBg/Parallax"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 528.0
+margin_top = 56.0
+margin_right = 1008.0
+margin_bottom = 408.0
+
+[node name="TextEdit" type="TextEdit" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_top = 8.0
+margin_right = 480.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 6 )
+highlight_current_line = true
+breakpoint_gutter = true
+smooth_scrolling = true
+hiding_enabled = 1
+wrap_enabled = true
+caret_blink = true
+
+[node name="PassagesLabel" type="Label" parent="PBg/Parallax/PassageEditor"]
+margin_top = 88.0
+margin_right = 152.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Passages"
+valign = 1
+
+[node name="AddPassBtn" type="LinkButton" parent="PBg/Parallax/PassageEditor"]
+margin_top = 104.0
+margin_right = 64.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 6 )
+text = "Add"
+underline = 1
+
+[node name="RemovePassBtn" type="LinkButton" parent="PBg/Parallax/PassageEditor"]
+margin_left = 64.0
+margin_top = 104.0
+margin_right = 128.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 6 )
+text = "Remove"
+underline = 1
+
+[node name="PassagesList" type="ItemList" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_list",
+]]
+margin_top = 120.0
+margin_right = 160.0
+margin_bottom = 352.0
+custom_fonts/font = ExtResource( 6 )
+custom_constants/vseparation = 1
+items = [ "", null, false ]
+
+[node name="PassageTagLabel" type="Label" parent="PBg/Parallax/PassageEditor"]
+margin_left = 168.0
+margin_top = 104.0
+margin_right = 320.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Passage Tag"
+valign = 1
+
+[node name="TagLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_left = 168.0
+margin_top = 120.0
+margin_right = 320.0
+margin_bottom = 144.0
+
+[node name="VoiceLabel" type="Label" parent="PBg/Parallax/PassageEditor"]
+margin_left = 328.0
+margin_top = 104.0
+margin_right = 480.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Voice"
+valign = 1
+
+[node name="VoiceLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_left = 328.0
+margin_top = 120.0
+margin_right = 480.0
+margin_bottom = 144.0
+
+[node name="DirectionsLabel" type="Label" parent="PBg/Parallax/PassageEditor"]
+margin_left = 168.0
+margin_top = 152.0
+margin_right = 320.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Stage Directions"
+valign = 1
+
+[node name="AddDirectionBtn" type="LinkButton" parent="PBg/Parallax/PassageEditor"]
+margin_left = 168.0
+margin_top = 168.0
+margin_right = 232.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 6 )
+text = "Add"
+underline = 1
+
+[node name="RemoveDirectionBtn" type="LinkButton" parent="PBg/Parallax/PassageEditor"]
+margin_left = 232.0
+margin_top = 168.0
+margin_right = 296.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 6 )
+text = "Remove"
+underline = 1
+
+[node name="DirectionsList" type="ItemList" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_list",
+]]
+margin_left = 168.0
+margin_top = 184.0
+margin_right = 320.0
+margin_bottom = 304.0
+
+[node name="DirectionArgumentsLabel" type="Label" parent="PBg/Parallax/PassageEditor"]
+margin_left = 328.0
+margin_top = 152.0
+margin_right = 481.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Direction Arguments"
+valign = 1
+
+[node name="AddArgumentBtn" type="LinkButton" parent="PBg/Parallax/PassageEditor"]
+margin_left = 328.0
+margin_top = 168.0
+margin_right = 392.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 6 )
+text = "Add"
+underline = 1
+
+[node name="RemoveArgumentBtn" type="LinkButton" parent="PBg/Parallax/PassageEditor"]
+margin_left = 392.0
+margin_top = 168.0
+margin_right = 456.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 6 )
+text = "Remove"
+underline = 1
+
+[node name="DirectionArgumentsList" type="ItemList" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_list",
+]]
+margin_left = 328.0
+margin_top = 184.0
+margin_right = 480.0
+margin_bottom = 304.0
+
+[node name="DirectionTagLabel" type="Label" parent="PBg/Parallax/PassageEditor"]
+margin_left = 168.0
+margin_top = 312.0
+margin_right = 320.0
+margin_bottom = 328.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Direction Tag"
+valign = 1
+
+[node name="DirectionTagLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_left = 168.0
+margin_top = 328.0
+margin_right = 320.0
+margin_bottom = 352.0
+
+[node name="ArgumentStringLabel" type="Label" parent="PBg/Parallax/PassageEditor"]
+margin_left = 328.0
+margin_top = 312.0
+margin_right = 480.0
+margin_bottom = 327.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Argument String"
+valign = 1
+
+[node name="ArgumentStringLineEdit" type="LineEdit" parent="PBg/Parallax/PassageEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_left = 328.0
+margin_top = 328.0
+margin_right = 480.0
+margin_bottom = 352.0
+caret_blink = true
+
+[node name="VoiceEditor" type="Control" parent="PBg/Parallax"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 528.0
+margin_top = 56.0
+margin_right = 1008.0
+margin_bottom = 408.0
+
+[node name="VoicesLabel" type="Label" parent="PBg/Parallax/VoiceEditor"]
+margin_top = 9.0
+margin_right = 152.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Voices"
+valign = 1
+
+[node name="AddVoiceBtn" type="LinkButton" parent="PBg/Parallax/VoiceEditor"]
+margin_top = 24.0
+margin_right = 64.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 6 )
+text = "Add"
+underline = 1
+
+[node name="RemoveVoiceBtn" type="LinkButton" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 64.0
+margin_top = 24.0
+margin_right = 128.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 6 )
+text = "Remove"
+underline = 1
+
+[node name="VoicesList" type="ItemList" parent="PBg/Parallax/VoiceEditor" groups=[
+"NecRomEdit_list",
+]]
+margin_top = 40.0
+margin_right = 160.0
+margin_bottom = 352.0
+custom_fonts/font = ExtResource( 6 )
+custom_constants/vseparation = 1
+items = [ "", null, false ]
+
+[node name="VoiceNameLabel" type="Label" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 168.0
+margin_top = 40.0
+margin_right = 320.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Voice Name"
+valign = 1
+
+[node name="VoiceNameLineEdit" type="LineEdit" parent="PBg/Parallax/VoiceEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_left = 168.0
+margin_top = 56.0
+margin_right = 481.0
+margin_bottom = 80.0
+
+[node name="SoundCategoriesLabel" type="Label" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 168.0
+margin_top = 88.0
+margin_right = 320.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Sound Categories"
+valign = 1
+
+[node name="AddSoundCategoryBtn" type="LinkButton" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 168.0
+margin_top = 104.0
+margin_right = 232.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 6 )
+text = "Add"
+underline = 1
+
+[node name="RemoveSoundCategoryBtn" type="LinkButton" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 232.0
+margin_top = 104.0
+margin_right = 296.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 6 )
+text = "Remove"
+underline = 1
+
+[node name="SoundCategoriesList" type="ItemList" parent="PBg/Parallax/VoiceEditor" groups=[
+"NecRomEdit_list",
+]]
+margin_left = 168.0
+margin_top = 120.0
+margin_right = 320.0
+margin_bottom = 304.0
+
+[node name="CategoryNameLabel" type="Label" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 168.0
+margin_top = 312.0
+margin_right = 320.0
+margin_bottom = 328.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Category Name"
+valign = 1
+
+[node name="CategoryNameLineEdit" type="LineEdit" parent="PBg/Parallax/VoiceEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_left = 168.0
+margin_top = 328.0
+margin_right = 320.0
+margin_bottom = 352.0
+
+[node name="SoundsLabel" type="Label" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 328.0
+margin_top = 88.0
+margin_right = 481.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Sounds"
+valign = 1
+
+[node name="AddSoundBtn" type="LinkButton" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 328.0
+margin_top = 104.0
+margin_right = 392.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 6 )
+text = "Add"
+underline = 1
+
+[node name="RemoveSoundBtn" type="LinkButton" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 392.0
+margin_top = 104.0
+margin_right = 456.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 6 )
+text = "Remove"
+underline = 1
+
+[node name="SoundsList" type="ItemList" parent="PBg/Parallax/VoiceEditor" groups=[
+"NecRomEdit_list",
+]]
+margin_left = 328.0
+margin_top = 120.0
+margin_right = 480.0
+margin_bottom = 304.0
+
+[node name="SoundNameLabel" type="Label" parent="PBg/Parallax/VoiceEditor"]
+margin_left = 328.0
+margin_top = 312.0
+margin_right = 480.0
+margin_bottom = 327.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+text = "Sound Name"
+valign = 1
+
+[node name="SoundNameLineEdit" type="LineEdit" parent="PBg/Parallax/VoiceEditor" groups=[
+"NecRomEdit_line",
+"passage_editor_line",
+]]
+margin_left = 328.0
+margin_top = 328.0
+margin_right = 480.0
+margin_bottom = 352.0
+caret_blink = true
+
+[node name="FileDialog" type="FileDialog" parent="PBg/Parallax"]
+margin_left = 528.0
+margin_top = 40.0
+margin_right = 1008.0
+margin_bottom = 408.0
+popup_exclusive = true
+window_title = "Open a File"
+dialog_text = "Any unsaved progress on the current story file will be lost upon loading."
+dialog_hide_on_ok = true
+mode = 0
+access = 2
+current_dir = "C:/Users/virgula/Desktop/NecRomancer/source/NecRomancer"
+current_path = "C:/Users/virgula/Desktop/NecRomancer/source/NecRomancer/"
+[connection signal="pressed" from="PBg/Parallax/StoryBtn" to="." method="_on_StoryBtn_pressed"]
+[connection signal="pressed" from="PBg/Parallax/PassagesBtn" to="." method="_on_PassagesBtn_pressed"]
+[connection signal="pressed" from="PBg/Parallax/VoicesBtn" to="." method="_on_VoicesBtn_pressed"]
+[connection signal="pressed" from="PBg/Parallax/LoadStoryBtn" to="." method="_on_LoadStoryBtn_pressed"]
+[connection signal="pressed" from="PBg/Parallax/SaveStoryBtn" to="." method="_on_SaveStoryBtn_pressed"]
+[connection signal="text_changed" from="PBg/Parallax/StoryEditor/TitleLineEdit" to="." method="_on_TitleLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/StoryEditor/VersionLineEdit" to="." method="_on_VersionLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/StoryEditor/DescriptionLineEdit" to="." method="_on_DescriptionLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/StoryEditor/IdLineEdit" to="." method="_on_IdLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/StoryEditor/AuthorLineEdit" to="." method="_on_AuthorLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/StoryEditor/EmailLineEdit" to="." method="_on_EmailLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/StoryEditor/WebsiteLineEdit" to="." method="_on_WebsiteLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/PassageEditor/TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="PBg/Parallax/PassageEditor/AddPassBtn" to="." method="_on_AddPassBtn_pressed"]
+[connection signal="pressed" from="PBg/Parallax/PassageEditor/RemovePassBtn" to="." method="_on_RemovePassBtn_pressed"]
+[connection signal="item_selected" from="PBg/Parallax/PassageEditor/PassagesList" to="." method="_on_PassagesList_item_selected"]
+[connection signal="text_changed" from="PBg/Parallax/PassageEditor/TagLineEdit" to="." method="_on_TagLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/PassageEditor/VoiceLineEdit" to="." method="_on_VoiceLineEdit_text_changed"]
+[connection signal="pressed" from="PBg/Parallax/PassageEditor/AddDirectionBtn" to="." method="_on_AddDirectionBtn_pressed"]
+[connection signal="pressed" from="PBg/Parallax/PassageEditor/RemoveDirectionBtn" to="." method="_on_RemoveDirectionBtn_pressed"]
+[connection signal="item_selected" from="PBg/Parallax/PassageEditor/DirectionsList" to="." method="_on_DirectionsList_item_selected"]
+[connection signal="pressed" from="PBg/Parallax/PassageEditor/AddArgumentBtn" to="." method="_on_AddArgumentBtn_pressed"]
+[connection signal="pressed" from="PBg/Parallax/PassageEditor/RemoveArgumentBtn" to="." method="_on_RemoveArgumentBtn_pressed"]
+[connection signal="item_selected" from="PBg/Parallax/PassageEditor/DirectionArgumentsList" to="." method="_on_DirectionArgumentsList_item_selected"]
+[connection signal="text_changed" from="PBg/Parallax/PassageEditor/DirectionTagLineEdit" to="." method="_on_DirectionTagLineEdit_text_changed"]
+[connection signal="text_changed" from="PBg/Parallax/PassageEditor/ArgumentStringLineEdit" to="." method="_on_ArgumentStringLineEdit_text_changed"]
+[connection signal="file_selected" from="PBg/Parallax/FileDialog" to="." method="_on_FileDialog_file_selected"]

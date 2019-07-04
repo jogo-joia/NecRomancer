@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/861679_Disambiguation.ogg-ac51ff12b9f5fab5ac2bb7de55a5ff85.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/861679_Disambiguation.ogg"
+dest_files=[ "res://.import/861679_Disambiguation.ogg-ac51ff12b9f5fab5ac2bb7de55a5ff85.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

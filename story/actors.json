@@ -1,0 +1,35 @@
+{
+    "lydia": {
+        "character_sheet": {},
+        "states": {
+            "default": [
+                "res://assets/actors/lydia/lydia-default00.png"
+            ],
+            "angry": [
+                "res://assets/actors/lydia/lydia-angry00.png"
+            ]
+        }
+    },
+    "blacksmith": {
+        "character_sheet": {},
+        "states": {
+            "default": [
+                "res://assets/actors/blacksmith/blacksmith-default00.png"
+            ],
+            "angry": [
+                "res://assets/actors/blacksmith/blacksmith-default00.png"
+            ]
+        }
+    },
+    "necromancer": {
+        "character_sheet": {},
+        "states": {
+            "default": [
+                "res://assets/actors/necromancer/necromancer-default00.png"
+            ],
+            "angry": [
+                "res://assets/actors/necromancer/necromancer-angry00.png"
+            ]
+        }
+    }
+}

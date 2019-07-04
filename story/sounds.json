@@ -1,0 +1,7 @@
+{
+    "piano-violin-viola": "res://assets/audio/music/trio-for-piano-violin-viola.ogg",
+    "gymnopedie": "res://assets/audio/music/gymnopedie.ogg",
+    "damage": "res://assets/sound/sfx-damage1.wav",
+    "realization": "res://assets/sound/sfx-realization.wav",
+    "bip": "res://assets/sound/sfx-bip2.wav"
+}
