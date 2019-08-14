@@ -48,7 +48,7 @@ func queue_pause(channel: String):
 
 func play(channel: String, sound: String = "", volume: float = 0, pitch: float = 1, loop: = false):
 	var player: AudioStreamPlayer
-	if channel in channels.keys():
+	if channel in channels.keys() and !loop:
 		player = channels[channel].player
 		player.play(channels[channel].playback_position)
 		return
@@ -59,15 +59,22 @@ func play(channel: String, sound: String = "", volume: float = 0, pitch: float =
 	add_child(player)
 	channels[channel] = {"player": player, "playback_position": 0.0}
 	player.stream = load(sounds[sound])
+	player.volume_db = volume
+	player.pitch_scale = pitch
 	player.play()
 	yield(player, "finished")
-	channels.erase(channel)
-	player.queue_free()
+	if loop:
+		play(channel, sound, volume, pitch, true)
+	if !loop:
+		channels.erase(channel)
+		player.queue_free()
 
 func play_and_forget(sound: String = "", volume: float = 0, pitch: float = 1, loop: bool = false):
 	var player: AudioStreamPlayer = AudioStreamPlayer.new()
 	add_child(player)
 	player.stream = load(sounds[sound])
+	player.volume_db = volume
+	player.pitch_scale = pitch
 	player.play()
 	yield(player, "finished")
 	player.queue_free()

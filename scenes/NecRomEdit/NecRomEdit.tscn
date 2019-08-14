@@ -106,8 +106,8 @@ text = "Story Title"
 valign = 1
 
 [node name="TitleLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"NecRomEdit_line",
 "story_settings_line",
+"NecRomEdit_line",
 ]]
 margin_top = 24.0
 margin_right = 480.0
@@ -123,8 +123,8 @@ text = "Version"
 valign = 1
 
 [node name="VersionLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"NecRomEdit_line",
 "story_settings_line",
+"NecRomEdit_line",
 ]]
 margin_top = 80.0
 margin_right = 232.0
@@ -141,8 +141,8 @@ text = "Description"
 valign = 1
 
 [node name="DescriptionLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"NecRomEdit_line",
 "story_settings_line",
+"NecRomEdit_line",
 ]]
 margin_left = 248.0
 margin_top = 80.0
@@ -159,8 +159,8 @@ text = "ID"
 valign = 1
 
 [node name="IdLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"NecRomEdit_line",
 "story_settings_line",
+"NecRomEdit_line",
 ]]
 margin_top = 128.0
 margin_right = 232.0
@@ -177,8 +177,8 @@ text = "Author"
 valign = 1
 
 [node name="AuthorLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"NecRomEdit_line",
 "story_settings_line",
+"NecRomEdit_line",
 ]]
 margin_left = 248.0
 margin_top = 128.0
@@ -195,8 +195,8 @@ text = "Email"
 valign = 1
 
 [node name="EmailLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"NecRomEdit_line",
 "story_settings_line",
+"NecRomEdit_line",
 ]]
 margin_top = 176.0
 margin_right = 232.0
@@ -213,8 +213,8 @@ text = "Website"
 valign = 1
 
 [node name="WebsiteLineEdit" type="LineEdit" parent="PBg/Parallax/StoryEditor" groups=[
-"NecRomEdit_line",
 "story_settings_line",
+"NecRomEdit_line",
 ]]
 margin_left = 248.0
 margin_top = 176.0

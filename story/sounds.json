@@ -1,7 +1,19 @@
 {
+    "button_press": "res://assets/sound/ui/button_press_001.ogg",
+    "rollover_001": "res://assets/sound/ui/rollover_001.ogg",
+    "dice_roll": "res://assets/sound/effects/dice_roll.ogg",
+    "dice_roll2": "res://assets/sound/effects/dice_roll_002.ogg",
+    "dice_roll3": "res://assets/sound/effects/dice_roll_003.ogg",
+    "lifesteal": "res://assets/sound/effects/lifesteal.ogg",
     "piano-violin-viola": "res://assets/audio/music/trio-for-piano-violin-viola.ogg",
     "gymnopedie": "res://assets/audio/music/gymnopedie.ogg",
     "damage": "res://assets/sound/sfx-damage1.wav",
+    "damage1": "res://assets/sound/effects/new_damage_001.ogg",
+    "damage2": "res://assets/sound/effects/new_damage_002.ogg",
+    "damage3": "res://assets/sound/effects/new_damage_003.ogg",
+    "heal": "res://assets/sound/effects/healing.ogg",
+    "energize": "res://assets/sound/effects/energize.ogg",
     "realization": "res://assets/sound/sfx-realization.wav",
-    "bip": "res://assets/sound/sfx-bip2.wav"
+    "bip": "res://assets/sound/sfx-bip2.wav",
+    "okey-dokey-smokey": "res://assets/sound/music/Okey_Dokey_Smokey.ogg"
 }

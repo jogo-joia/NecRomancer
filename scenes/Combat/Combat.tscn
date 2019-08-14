@@ -1,0 +1,470 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://scenes/Combat/Combat.gd" type="Script" id=1]
+[ext_resource path="res://assets/actors/blacksmith/c11.png" type="Texture" id=2]
+[ext_resource path="res://scenes/StageObject/StageObject.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/actors/necromancer/necromancer-default00.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/combat/effects/wack/wack-000.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/combat/effects/wack/wack-001.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/combat/effects/wack/wack-002.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/combat/effects/wack/wack-003.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/combat/effects/wack/wack-004.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/vn/fullenglish.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/combat/buttons/attack-normal.png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/combat/buttons/attack-pressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/ui/combat/buttons/attack-hover.png" type="Texture" id=13]
+[ext_resource path="res://assets/ui/combat/buttons/attack-disabled.png" type="Texture" id=14]
+[ext_resource path="res://assets/ui/combat/buttons/heal-normal.png" type="Texture" id=15]
+[ext_resource path="res://assets/ui/combat/buttons/heal-pressed.png" type="Texture" id=16]
+[ext_resource path="res://assets/ui/combat/buttons/heal-hover.png" type="Texture" id=17]
+[ext_resource path="res://assets/ui/combat/buttons/heal-disabled.png" type="Texture" id=18]
+[ext_resource path="res://assets/ui/combat/buttons/restore-normal.png" type="Texture" id=19]
+[ext_resource path="res://assets/ui/combat/buttons/restore-pressed.png" type="Texture" id=20]
+[ext_resource path="res://assets/ui/combat/buttons/restore-hover.png" type="Texture" id=21]
+[ext_resource path="res://assets/ui/combat/buttons/restore-disabled.png" type="Texture" id=22]
+[ext_resource path="res://assets/ui/combat/health-title.png" type="Texture" id=23]
+[ext_resource path="res://assets/fonts/palatino_bold_22.tres" type="DynamicFont" id=24]
+[ext_resource path="res://assets/ui/combat/wounds-title.png" type="Texture" id=25]
+[ext_resource path="res://assets/ui/combat/magic-title.png" type="Texture" id=26]
+[ext_resource path="res://scenes/DialogBox/DialogBox.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/ui/combat/empty-lifebar.png" type="Texture" id=28]
+[ext_resource path="res://assets/ui/combat/full-lifebar.png" type="Texture" id=29]
+[ext_resource path="res://assets/fonts/palatino_bold.tres" type="DynamicFont" id=30]
+[ext_resource path="res://scenes/NecRomEdit/JsonParser.gd" type="Script" id=31]
+[ext_resource path="res://scenes/SoundManager/SoundManager.tscn" type="PackedScene" id=32]
+[ext_resource path="res://assets/ui/combat/effects/healing-vignette.png" type="Texture" id=33]
+[ext_resource path="res://assets/ui/combat/effects/damage-vignette.png" type="Texture" id=34]
+
+[sub_resource type="Animation" id=1]
+resource_name = "take_hit"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 304, 268 ), Vector2( 240, 264 ), Vector2( 256, 264 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "default",
+"speed": 16.0
+} ]
+
+[sub_resource type="Animation" id=4]
+resource_name = "add"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.297302, 0.87055 ),
+"update": 0,
+"values": [ Vector2( 96, 16 ), Vector2( 96, -85 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.760784, 0.109804, 0.109804, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "remove"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.297302, 0.87055 ),
+"update": 0,
+"values": [ Vector2( 96, 16 ), Vector2( 96, -85 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1.46409, 1.07177 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.937255, 0.92549, 0.270588, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "add"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 16 ), Vector2( 192, -85 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.937255, 0.92549, 0.270588, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "remove"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 16 ), Vector2( 192, -85 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.937255, 0.270588, 0.270588, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "player_healing"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 2.46229, 0.466517 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "player_damage"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.129409, 1.51572, 0.307787 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.870588 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Combat" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="c11" type="TextureRect" parent="."]
+margin_left = -34.0
+margin_right = 734.0
+margin_bottom = 424.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="StageObject" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 264 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StageObject"]
+anims/take_hit = SubResource( 1 )
+
+[node name="fakemancer" type="TextureRect" parent="."]
+visible = false
+margin_left = 150.0
+margin_top = 36.0
+margin_right = 391.0
+margin_bottom = 351.0
+texture = ExtResource( 4 )
+
+[node name="WackAnimation" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( 256, 184 )
+frames = SubResource( 8 )
+
+[node name="FullEnglish" type="TextureRect" parent="."]
+margin_top = 240.0
+margin_right = 512.0
+margin_bottom = 384.0
+texture = ExtResource( 10 )
+
+[node name="AttackButton" type="TextureButton" parent="."]
+margin_left = 64.0
+margin_top = 272.0
+margin_right = 160.0
+margin_bottom = 296.0
+focus_next = NodePath("../TextureButton2")
+focus_previous = NodePath("../TextureButton3")
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 14 )
+
+[node name="HealButton" type="TextureButton" parent="."]
+margin_left = 64.0
+margin_top = 300.0
+margin_right = 160.0
+margin_bottom = 324.0
+focus_next = NodePath("../StatsBlock/HealthLabel3")
+focus_previous = NodePath("../TextureButton")
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 18 )
+
+[node name="RestoreButton" type="TextureButton" parent="."]
+margin_left = 64.0
+margin_top = 328.0
+margin_right = 160.0
+margin_bottom = 352.0
+focus_next = NodePath("../TextureButton")
+focus_previous = NodePath("../TextureButton2")
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 22 )
+
+[node name="StatsBlock" type="Control" parent="."]
+editor/display_folded = true
+margin_left = 168.0
+margin_top = 272.0
+margin_right = 440.0
+margin_bottom = 312.0
+
+[node name="HealthTextureLabel" type="TextureRect" parent="StatsBlock"]
+margin_right = 80.0
+margin_bottom = 16.0
+texture = ExtResource( 23 )
+
+[node name="HealthLabel" type="Label" parent="StatsBlock"]
+margin_top = 16.0
+margin_right = 80.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+text = "44"
+align = 1
+valign = 2
+
+[node name="WoundsTextureLabel" type="TextureRect" parent="StatsBlock"]
+margin_left = 96.0
+margin_right = 176.0
+margin_bottom = 16.0
+texture = ExtResource( 25 )
+
+[node name="WoundsLabel" type="Label" parent="StatsBlock"]
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 176.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+text = "0"
+align = 1
+valign = 2
+
+[node name="WoundsEffectLabel" type="Label" parent="StatsBlock"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 176.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 0.760784, 0.109804, 0.109804, 1 )
+text = "0"
+align = 1
+valign = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StatsBlock/WoundsEffectLabel"]
+anims/add = SubResource( 4 )
+anims/remove = SubResource( 5 )
+
+[node name="MagicTextureLabel" type="TextureRect" parent="StatsBlock"]
+margin_left = 192.0
+margin_right = 272.0
+margin_bottom = 16.0
+texture = ExtResource( 26 )
+
+[node name="MagicLabel" type="Label" parent="StatsBlock"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 272.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+text = "24"
+align = 1
+valign = 2
+
+[node name="MagicEffectLabel" type="Label" parent="StatsBlock"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 272.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 24 )
+custom_colors/font_color = Color( 0.937255, 0.270588, 0.270588, 1 )
+text = "24"
+align = 1
+valign = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StatsBlock/MagicEffectLabel"]
+anims/add = SubResource( 6 )
+anims/remove = SubResource( 7 )
+
+[node name="DialogBox" parent="." instance=ExtResource( 27 )]
+margin_left = 168.0
+margin_top = 315.0
+margin_right = -72.0
+margin_bottom = -77.0
+
+[node name="EnemyHealthbar" type="TextureProgress" parent="."]
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 496.0
+margin_bottom = 52.0
+step = 0.05
+texture_under = ExtResource( 28 )
+texture_progress = ExtResource( 29 )
+
+[node name="EnemyNameLabel" type="Label" parent="EnemyHealthbar"]
+margin_left = 8.0
+margin_top = -16.0
+margin_right = 472.0
+custom_fonts/font = ExtResource( 30 )
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_colors/font_color_shadow = Color( 0.109804, 0.109804, 0.109804, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+text = "Lydia, Knight Paladin of the Order of the Chamber of the Light"
+align = 1
+valign = 1
+
+[node name="Tween" type="Tween" parent="EnemyHealthbar"]
+
+[node name="JsonParser" type="Node" parent="."]
+script = ExtResource( 31 )
+
+[node name="SoundManager" parent="." instance=ExtResource( 32 )]
+
+[node name="HealingVignette" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 512.0
+margin_bottom = 424.0
+mouse_filter = 2
+texture = ExtResource( 33 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HealingVignette"]
+anims/player_healing = SubResource( 2 )
+
+[node name="DamageVignette" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 512.0
+margin_bottom = 424.0
+mouse_filter = 2
+texture = ExtResource( 34 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DamageVignette"]
+anims/player_damage = SubResource( 3 )
+[connection signal="animation_finished" from="WackAnimation" to="." method="_on_WackAnimation_animation_finished"]
+[connection signal="mouse_entered" from="AttackButton" to="." method="_on_AttackButton_mouse_entered"]
+[connection signal="pressed" from="AttackButton" to="." method="_on_AttackButton_pressed"]
+[connection signal="mouse_entered" from="HealButton" to="." method="_on_HealButton_mouse_entered"]
+[connection signal="pressed" from="HealButton" to="." method="_on_HealButton_pressed"]
+[connection signal="mouse_entered" from="RestoreButton" to="." method="_on_RestoreButton_mouse_entered"]
+[connection signal="pressed" from="RestoreButton" to="." method="_on_RestoreButton_pressed"]

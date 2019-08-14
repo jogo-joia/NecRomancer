@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Battler",
 "language": "GDScript",
-"path": "res://scenes/Battler/Battler.gd"
+"path": "res://scenes/Combat/Battler/Battler.gd"
 }, {
 "base": "Node",
 "class": "JsonParser",
@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "TurnQueue",
 "language": "GDScript",
-"path": "res://scenes/TurnQueue/TurnQueue.gd"
+"path": "res://scenes/Combat/TurnQueue/TurnQueue.gd"
 } ]
 _global_script_class_icons={
 "Battler": "",
@@ -63,6 +63,7 @@ config/icon="res://icon.png"
 [autoload]
 
 JsonParser="*res://scenes/NecRomEdit/JsonParser.gd"
+Random="*res://code/Random.gd"
 
 [debug]
 

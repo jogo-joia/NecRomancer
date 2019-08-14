@@ -1,0 +1,72 @@
+{
+    "lydia": {
+        "display_name": "Lydia, Knight Paladin of the Order of the Chamber of Light",
+        "short_name": "Lydia",
+        "actor": "lydia",
+        "ai": "arcade",
+        "max_hp": 30,
+        "hp": 30,
+        "max_mp": 30,
+        "mp": 10
+    },
+    "beicola": {
+        "display_name": "Beicc'Olla, Lord of All Pastel",
+        "short_name": "Beicc'Olla",
+        "actor": "beicola",
+        "ai": "arcade",
+        "max_hp": 45,
+        "hp": 45,
+        "max_mp": 24,
+        "mp": 20
+    },
+    "arcade_necromancer": {
+        "display_name": "Mavut Mayes, Necromantic Barony of Boulderchip",
+        "short_name": "the Necromancer",
+        "actor": "necromancer",
+        "ai": "arcade",
+        "max_hp": 45,
+        "hp": 45,
+        "max_mp": 24,
+        "mp": 20
+    },
+    "invincible_necromancer": {
+        "display_name": "Mavut Mayes, Necromantic Barony of Boulderchip",
+        "short_name": "the Necromancer",
+        "actor": "necromancer",
+        "ai": "arcade",
+        "max_hp": 10000,
+        "hp": 10000,
+        "max_mp": 10000,
+        "mp": 10000
+    },
+    "necromancer_ally": {
+        "display_name": "The Necromancer",
+        "short_name": "the Necromancer",
+        "actor": "necromancer",
+        "ai": "ally_necromancer",
+        "max_hp": 55,
+        "hp": 55,
+        "max_mp": 30,
+        "mp": 30
+    },
+    "zombie_skeleton_man_boar": {
+        "display_name": "Famished Zombie-Skeleton-Man-Boar",
+        "short_name": "the Zombie-Skeleton-Man-Boar",
+        "actor": "zombie_skeleton_man_boar",
+        "ai": "zombie_skeleton_man_boar",
+        "max_hp": 80,
+        "hp": 80,
+        "max_mp": 0,
+        "mp": 0
+    },
+    "fish": {
+        "display_name": "Fish",
+        "short_name": "the Fish",
+        "actor": "fish",
+        "ai": "arcade",
+        "max_hp": 120,
+        "hp": 55,
+        "max_mp": 30,
+        "mp": 30
+    },
+}

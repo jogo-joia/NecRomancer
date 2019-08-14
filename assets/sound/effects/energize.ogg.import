@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/energize.ogg-47857f14cc5d21efae4091388c3ee93f.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/effects/energize.ogg"
+dest_files=[ "res://.import/energize.ogg-47857f14cc5d21efae4091388c3ee93f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
